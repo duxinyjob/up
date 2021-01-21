@@ -1,4 +1,4 @@
-package com.example.spilder;
+package com.example.spider;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @EnableTransactionManagement
-@MapperScan("com.example.demo.dao")
+@MapperScan("com.example.spider.spider.dao")
 @EnableScheduling
 @EnableCaching
 public class SpilderApplication {

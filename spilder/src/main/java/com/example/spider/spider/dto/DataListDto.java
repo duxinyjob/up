@@ -1,4 +1,4 @@
-package com.example.spilder.spider.dto;
+package com.example.spider.spider.dto;
 
 import lombok.*;
 

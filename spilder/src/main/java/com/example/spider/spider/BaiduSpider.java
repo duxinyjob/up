@@ -1,4 +1,4 @@
-package com.example.spilder.spider;
+package com.example.spider.spider;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
