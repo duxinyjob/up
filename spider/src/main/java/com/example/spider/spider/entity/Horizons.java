@@ -18,7 +18,7 @@ import java.io.Serializable;
 @Getter
 @EqualsAndHashCode
 @ToString
-public class Jianwen implements Serializable {
+public class Horizons implements Serializable {
     private static final long serialVersionUID = 782410605437022440L;
     
     private Integer id;

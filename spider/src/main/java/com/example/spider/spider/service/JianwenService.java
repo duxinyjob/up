@@ -1,6 +1,6 @@
 package com.example.spider.spider.service;
 
-import com.example.spider.spider.entity.Jianwen;
+import com.example.spider.spider.entity.Horizons;
 import java.util.List;
 
 /**
@@ -17,7 +17,7 @@ public interface JianwenService {
      * @param id 主键
      * @return 实例对象
      */
-    Jianwen queryById(Integer id);
+    Horizons queryById(Integer id);
 
     /**
      * 查询多条数据
@@ -26,23 +26,23 @@ public interface JianwenService {
      * @param limit 查询条数
      * @return 对象列表
      */
-    List<Jianwen> queryAllByLimit(int offset, int limit);
+    List<Horizons> queryAllByLimit(int offset, int limit);
 
     /**
      * 新增数据
      *
-     * @param jianwen 实例对象
+     * @param horizons 实例对象
      * @return 实例对象
      */
-    Jianwen insert(Jianwen jianwen);
+    Horizons insert(Horizons horizons);
 
     /**
      * 修改数据
      *
-     * @param jianwen 实例对象
+     * @param horizons 实例对象
      * @return 实例对象
      */
-    Jianwen update(Jianwen jianwen);
+    Horizons update(Horizons horizons);
 
     /**
      * 通过主键删除数据

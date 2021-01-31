@@ -1,6 +1,6 @@
 package com.example.spider.spider.controller;
 
-import com.example.spider.spider.entity.Jianwen;
+import com.example.spider.spider.entity.Horizons;
 import com.example.spider.spider.service.JianwenService;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,7 +28,7 @@ public class JianwenController {
      * @return 单条数据
      */
     @GetMapping("selectOne")
-    public Jianwen selectOne(Integer id) {
+    public Horizons selectOne(Integer id) {
         return this.jianwenService.queryById(id);
     }
 

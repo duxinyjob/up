@@ -1,7 +1,7 @@
 package com.example.spider.spider.service.impl;
 
-import com.example.spider.spider.entity.Jianwen;
-import com.example.spider.spider.dao.JianwenDao;
+import com.example.spider.spider.entity.Horizons;
+import com.example.spider.spider.dao.HorizonsDao;
 import com.example.spider.spider.service.JianwenService;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ import java.util.List;
 @Service("jianwenService")
 public class JianwenServiceImpl implements JianwenService {
     @Resource
-    private JianwenDao jianwenDao;
+    private HorizonsDao horizonsDao;
 
     /**
      * 通过ID查询单条数据
@@ -26,8 +26,8 @@ public class JianwenServiceImpl implements JianwenService {
      * @return 实例对象
      */
     @Override
-    public Jianwen queryById(Integer id) {
-        return this.jianwenDao.queryById(id);
+    public Horizons queryById(Integer id) {
+        return this.horizonsDao.queryById(id);
     }
 
     /**
@@ -38,32 +38,32 @@ public class JianwenServiceImpl implements JianwenService {
      * @return 对象列表
      */
     @Override
-    public List<Jianwen> queryAllByLimit(int offset, int limit) {
-        return this.jianwenDao.queryAllByLimit(offset, limit);
+    public List<Horizons> queryAllByLimit(int offset, int limit) {
+        return this.horizonsDao.queryAllByLimit(offset, limit);
     }
 
     /**
      * 新增数据
      *
-     * @param jianwen 实例对象
+     * @param horizons 实例对象
      * @return 实例对象
      */
     @Override
-    public Jianwen insert(Jianwen jianwen) {
-        this.jianwenDao.insert(jianwen);
-        return jianwen;
+    public Horizons insert(Horizons horizons) {
+        this.horizonsDao.insert(horizons);
+        return horizons;
     }
 
     /**
      * 修改数据
      *
-     * @param jianwen 实例对象
+     * @param horizons 实例对象
      * @return 实例对象
      */
     @Override
-    public Jianwen update(Jianwen jianwen) {
-        this.jianwenDao.update(jianwen);
-        return this.queryById(jianwen.getId());
+    public Horizons update(Horizons horizons) {
+        this.horizonsDao.update(horizons);
+        return this.queryById(horizons.getId());
     }
 
     /**
@@ -74,6 +74,6 @@ public class JianwenServiceImpl implements JianwenService {
      */
     @Override
     public boolean deleteById(Integer id) {
-        return this.jianwenDao.deleteById(id) > 0;
+        return this.horizonsDao.deleteById(id) > 0;
     }
 }

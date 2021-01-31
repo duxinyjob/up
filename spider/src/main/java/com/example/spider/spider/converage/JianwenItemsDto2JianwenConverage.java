@@ -1,8 +1,7 @@
 package com.example.spider.spider.converage;
 
 import com.example.spider.spider.dto.JianwenItemsDto;
-import com.example.spider.spider.entity.Jianwen;
-import org.mapstruct.IterableMapping;
+import com.example.spider.spider.entity.Horizons;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
@@ -27,8 +26,8 @@ public interface JianwenItemsDto2JianwenConverage {
             @Mapping(source = "is_scaling", target = "isScaling"),
             @Mapping(source = "related_themes", target = "relatedThemes"),
     })
-    Jianwen jianwenFromJianwenItemsDto(JianwenItemsDto itemsDto);
+    Horizons jianwenFromJianwenItemsDto(JianwenItemsDto itemsDto);
 
-    List<Jianwen> jianwenFromJianwenItemsDto(List<JianwenItemsDto> itemsDto);
+    List<Horizons> jianwenFromJianwenItemsDto(List<JianwenItemsDto> itemsDto);
 
 }

@@ -2,10 +2,9 @@ package com.example.spider.spider;
 
 import com.alibaba.fastjson.JSON;
 import com.example.spider.spider.converage.JianwenItemsDto2JianwenConverage;
-import com.example.spider.spider.dao.JianwenDao;
-import com.example.spider.spider.dto.JianwenDto;
-import com.example.spider.spider.entity.Jianwen;
-import com.example.spider.spider.service.JianwenService;
+import com.example.spider.spider.dao.HorizonsDao;
+import com.example.spider.spider.dto.HorizonsDto;
+import com.example.spider.spider.entity.Horizons;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -18,13 +17,13 @@ import java.util.stream.Collectors;
 
 @Component
 @Slf4j
-public class JianwenSpider {
+public class HorizonsSpider {
 
     @Autowired
     private RestTemplate restTemplate;
 
     @Autowired
-    private JianwenDao jianwenDao;
+    private HorizonsDao horizonsDao;
 
     private Integer pageNo = 1;
 
@@ -32,7 +31,6 @@ public class JianwenSpider {
 
     @Scheduled(fixedDelay = 3000)
     public void start(){
-
         log.info("定时任务开启");
         this.getJianWenJson(pageNo);
         log.info("定时任务结束");
@@ -45,13 +43,13 @@ public class JianwenSpider {
         url.append("&limit=" + limit);
         String result = restTemplate.getForObject(url.toString(),String.class);
         System.out.println(result);
-        JianwenDto jianwenDto = JSON.parseObject(result,JianwenDto.class);
-        jianwenDto.getData().getItems();
-        List<Jianwen> jianwenList = JianwenItemsDto2JianwenConverage.INSTANCE.jianwenFromJianwenItemsDto(jianwenDto.getData().getItems());
-        System.out.println(jianwenList);
-        List<Jianwen> jianwenResult = jianwenList.stream().sorted(Comparator.comparingInt(Jianwen::getId).reversed()).collect(Collectors.toList());
-        for (Jianwen jianwen : jianwenList) {
-//            jianwenDao.insert(jianwen);
+        HorizonsDto horizonsDto = JSON.parseObject(result, HorizonsDto.class);
+        horizonsDto.getData().getItems();
+        List<Horizons> horizonsList = JianwenItemsDto2JianwenConverage.INSTANCE.jianwenFromJianwenItemsDto(horizonsDto.getData().getItems());
+        System.out.println(horizonsList);
+        List<Horizons> horizonsResult = horizonsList.stream().sorted(Comparator.comparingInt(Horizons::getId).reversed()).collect(Collectors.toList());
+        for (Horizons horizons : horizonsList) {
+            horizonsDao.insert(horizons);
         }
     }
 }

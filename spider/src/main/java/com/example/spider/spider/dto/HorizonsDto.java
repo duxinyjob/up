@@ -7,7 +7,7 @@ import lombok.*;
 @Data
 @ToString
 @EqualsAndHashCode
-public class JianwenDto {
+public class HorizonsDto {
     private String code;
     private String message;
     private DataListDto data;

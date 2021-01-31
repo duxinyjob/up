@@ -1,6 +1,6 @@
 package com.example.spider.spider.dao;
 
-import com.example.spider.spider.entity.Jianwen;
+import com.example.spider.spider.entity.Horizons;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
@@ -10,7 +10,7 @@ import java.util.List;
  * @author makejava
  * @since 2021-01-21 20:00:25
  */
-public interface JianwenDao {
+public interface HorizonsDao {
 
     /**
      * 通过ID查询单条数据
@@ -18,7 +18,7 @@ public interface JianwenDao {
      * @param id 主键
      * @return 实例对象
      */
-    Jianwen queryById(Integer id);
+    Horizons queryById(Integer id);
 
     /**
      * 查询指定行数据
@@ -27,32 +27,32 @@ public interface JianwenDao {
      * @param limit 查询条数
      * @return 对象列表
      */
-    List<Jianwen> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
+    List<Horizons> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
 
 
     /**
      * 通过实体作为筛选条件查询
      *
-     * @param jianwen 实例对象
+     * @param horizons 实例对象
      * @return 对象列表
      */
-    List<Jianwen> queryAll(Jianwen jianwen);
+    List<Horizons> queryAll(Horizons horizons);
 
     /**
      * 新增数据
      *
-     * @param jianwen 实例对象
+     * @param horizons 实例对象
      * @return 影响行数
      */
-    int insert(Jianwen jianwen);
+    int insert(Horizons horizons);
 
     /**
      * 修改数据
      *
-     * @param jianwen 实例对象
+     * @param horizons 实例对象
      * @return 影响行数
      */
-    int update(Jianwen jianwen);
+    int update(Horizons horizons);
 
     /**
      * 通过主键删除数据
