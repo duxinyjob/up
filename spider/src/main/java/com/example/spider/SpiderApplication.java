@@ -12,10 +12,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @MapperScan("com.example.spider.spider.dao")
 @EnableScheduling
 @EnableCaching
-public class SpilderApplication {
+public class SpiderApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpilderApplication.class, args);
+        SpringApplication.run(SpiderApplication.class, args);
     }
 
 }

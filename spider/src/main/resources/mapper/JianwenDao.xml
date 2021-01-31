@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.spider.spider.dao.JianwenDao">
+
+    <resultMap id="BaseResultMap" type="com.example.spider.spider.entity.Jianwen">
+        <!--@Table jianwen-->
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="article" column="article" jdbcType="VARCHAR"/>
+        <result property="channels" column="channels" jdbcType="VARCHAR"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+        <result property="contentMore" column="content_more" jdbcType="VARCHAR"/>
+        <result property="contentText" column="content_text" jdbcType="VARCHAR"/>
+        <result property="globalChannelName" column="global_channel_name" jdbcType="VARCHAR"/>
+        <result property="globalMoreUri" column="global_more_uri" jdbcType="VARCHAR"/>
+        <result property="displayTime" column="display_time" jdbcType="TIMESTAMP"/>
+        <result property="imageUris" column="image_uris" jdbcType="VARCHAR"/>
+        <result property="isCalendar" column="is_calendar" jdbcType="OTHER"/>
+        <result property="isFavourite" column="is_favourite" jdbcType="OTHER"/>
+        <result property="isPriced" column="is_priced" jdbcType="OTHER"/>
+        <result property="isScaling" column="is_scaling" jdbcType="OTHER"/>
+        <result property="reference" column="reference" jdbcType="VARCHAR"/>
+        <result property="relatedThemes" column="related_themes" jdbcType="VARCHAR"/>
+        <result property="score" column="score" jdbcType="OTHER"/>
+        <result property="symbols" column="symbols" jdbcType="VARCHAR"/>
+        <result property="tags" column="tags" jdbcType="VARCHAR"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="type" column="type" jdbcType="VARCHAR"/>
+        <result property="gmtCreatedTime" column="gmt_created_time" jdbcType="TIMESTAMP"/>
+        <result property="gmtUpdateTime" column="gmt_update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          id, article, channels, content, content_more, content_text, global_channel_name, global_more_uri, display_time, image_uris, is_calendar, is_favourite, is_priced, is_scaling, reference, related_themes, score, symbols, tags, title, type, gmt_created_time, gmt_update_time
+        from jianwen
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          id, article, channels, content, content_more, content_text, global_channel_name, global_more_uri, display_time, image_uris, is_calendar, is_favourite, is_priced, is_scaling, reference, related_themes, score, symbols, tags, title, type, gmt_created_time, gmt_update_time
+        from jianwen
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          id, article, channels, content, content_more, content_text, global_channel_name, global_more_uri, display_time, image_uris, is_calendar, is_favourite, is_priced, is_scaling, reference, related_themes, score, symbols, tags, title, type, gmt_created_time, gmt_update_time
+        from jianwen
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="article != null and article != ''">
+                and article = #{article}
+            </if>
+            <if test="channels != null and channels != ''">
+                and channels = #{channels}
+            </if>
+            <if test="content != null and content != ''">
+                and content = #{content}
+            </if>
+            <if test="contentMore != null and contentMore != ''">
+                and content_more = #{contentMore}
+            </if>
+            <if test="contentText != null and contentText != ''">
+                and content_text = #{contentText}
+            </if>
+            <if test="globalChannelName != null and globalChannelName != ''">
+                and global_channel_name = #{globalChannelName}
+            </if>
+            <if test="globalMoreUri != null and globalMoreUri != ''">
+                and global_more_uri = #{globalMoreUri}
+            </if>
+            <if test="displayTime != null">
+                and display_time = #{displayTime}
+            </if>
+            <if test="imageUris != null and imageUris != ''">
+                and image_uris = #{imageUris}
+            </if>
+            <if test="isCalendar != null">
+                and is_calendar = #{isCalendar}
+            </if>
+            <if test="isFavourite != null">
+                and is_favourite = #{isFavourite}
+            </if>
+            <if test="isPriced != null">
+                and is_priced = #{isPriced}
+            </if>
+            <if test="isScaling != null">
+                and is_scaling = #{isScaling}
+            </if>
+            <if test="reference != null and reference != ''">
+                and reference = #{reference}
+            </if>
+            <if test="relatedThemes != null and relatedThemes != ''">
+                and related_themes = #{relatedThemes}
+            </if>
+            <if test="score != null">
+                and score = #{score}
+            </if>
+            <if test="symbols != null and symbols != ''">
+                and symbols = #{symbols}
+            </if>
+            <if test="tags != null and tags != ''">
+                and tags = #{tags}
+            </if>
+            <if test="title != null and title != ''">
+                and title = #{title}
+            </if>
+            <if test="type != null and type != ''">
+                and type = #{type}
+            </if>
+            <if test="gmtCreatedTime != null">
+                and gmt_created_time = #{gmtCreatedTime}
+            </if>
+            <if test="gmtUpdateTime != null">
+                and gmt_update_time = #{gmtUpdateTime}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into jianwen(id,article, channels, content, content_more, content_text, global_channel_name, global_more_uri, display_time, image_uris, is_calendar, is_favourite, is_priced, is_scaling, reference, related_themes, score, symbols, tags, title, type, gmt_created_time, gmt_update_time)
+        values (#{id},#{article}, #{channels}, #{content}, #{contentMore}, #{contentText}, #{globalChannelName}, #{globalMoreUri}, #{displayTime}, #{imageUris}, #{isCalendar}, #{isFavourite}, #{isPriced}, #{isScaling}, #{reference}, #{relatedThemes}, #{score}, #{symbols}, #{tags}, #{title}, #{type}, #{gmtCreatedTime}, #{gmtUpdateTime})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update jianwen
+        <set>
+            <if test="article != null and article != ''">
+                article = #{article},
+            </if>
+            <if test="channels != null and channels != ''">
+                channels = #{channels},
+            </if>
+            <if test="content != null and content != ''">
+                content = #{content},
+            </if>
+            <if test="contentMore != null and contentMore != ''">
+                content_more = #{contentMore},
+            </if>
+            <if test="contentText != null and contentText != ''">
+                content_text = #{contentText},
+            </if>
+            <if test="globalChannelName != null and globalChannelName != ''">
+                global_channel_name = #{globalChannelName},
+            </if>
+            <if test="globalMoreUri != null and globalMoreUri != ''">
+                global_more_uri = #{globalMoreUri},
+            </if>
+            <if test="displayTime != null">
+                display_time = #{displayTime},
+            </if>
+            <if test="imageUris != null and imageUris != ''">
+                image_uris = #{imageUris},
+            </if>
+            <if test="isCalendar != null">
+                is_calendar = #{isCalendar},
+            </if>
+            <if test="isFavourite != null">
+                is_favourite = #{isFavourite},
+            </if>
+            <if test="isPriced != null">
+                is_priced = #{isPriced},
+            </if>
+            <if test="isScaling != null">
+                is_scaling = #{isScaling},
+            </if>
+            <if test="reference != null and reference != ''">
+                reference = #{reference},
+            </if>
+            <if test="relatedThemes != null and relatedThemes != ''">
+                related_themes = #{relatedThemes},
+            </if>
+            <if test="score != null">
+                score = #{score},
+            </if>
+            <if test="symbols != null and symbols != ''">
+                symbols = #{symbols},
+            </if>
+            <if test="tags != null and tags != ''">
+                tags = #{tags},
+            </if>
+            <if test="title != null and title != ''">
+                title = #{title},
+            </if>
+            <if test="type != null and type != ''">
+                type = #{type},
+            </if>
+            <if test="gmtCreatedTime != null">
+                gmt_created_time = #{gmtCreatedTime},
+            </if>
+            <if test="gmtUpdateTime != null">
+                gmt_update_time = #{gmtUpdateTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from jianwen where id = #{id}
+    </delete>
+
+</mapper>

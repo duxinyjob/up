@@ -51,7 +51,7 @@ public class JianwenSpider {
         System.out.println(jianwenList);
         List<Jianwen> jianwenResult = jianwenList.stream().sorted(Comparator.comparingInt(Jianwen::getId).reversed()).collect(Collectors.toList());
         for (Jianwen jianwen : jianwenList) {
-            jianwenDao.insert(jianwen);
+//            jianwenDao.insert(jianwen);
         }
     }
 }
