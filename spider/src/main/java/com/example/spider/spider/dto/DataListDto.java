@@ -12,7 +12,7 @@ import java.util.List;
 public class DataListDto {
 
     private Integer count;
-    private List<JianwenItemsDto> items;
+    private List<HorizonsItemsDto> items;
     private String next_cursor;
     private String search_id;
 }

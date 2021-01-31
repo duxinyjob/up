@@ -1,15 +1,17 @@
 package com.example.spider.spider.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.io.Serializable;
 
 /**
- * 见闻(Jianwen)实体类
+ * 见闻(Horizons)实体类
  *
  * @author makejava
  * @since 2021-01-21 20:00:24
@@ -36,7 +38,12 @@ public class Horizons implements Serializable {
     private String globalChannelName;
     
     private String globalMoreUri;
-    
+
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(
+            pattern = "yyyy-MM-dd HH:mm:ss",
+            timezone = "GMT+8"
+    )
     private Date displayTime;
     
     private String imageUris;

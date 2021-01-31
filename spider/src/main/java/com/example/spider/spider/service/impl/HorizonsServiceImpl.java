@@ -2,7 +2,7 @@ package com.example.spider.spider.service.impl;
 
 import com.example.spider.spider.entity.Horizons;
 import com.example.spider.spider.dao.HorizonsDao;
-import com.example.spider.spider.service.JianwenService;
+import com.example.spider.spider.service.HorizonsService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -15,7 +15,7 @@ import java.util.List;
  * @since 2021-01-21 20:00:27
  */
 @Service("jianwenService")
-public class JianwenServiceImpl implements JianwenService {
+public class HorizonsServiceImpl implements HorizonsService {
     @Resource
     private HorizonsDao horizonsDao;
 

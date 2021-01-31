@@ -9,7 +9,7 @@ import java.util.List;
  * @author makejava
  * @since 2021-01-21 20:00:26
  */
-public interface JianwenService {
+public interface HorizonsService {
 
     /**
      * 通过ID查询单条数据

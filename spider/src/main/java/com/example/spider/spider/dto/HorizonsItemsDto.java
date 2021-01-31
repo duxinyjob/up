@@ -1,22 +1,32 @@
 package com.example.spider.spider.dto;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Setter
 @Getter
 @EqualsAndHashCode
 @ToString
-public class JianwenItemsDto {
+public class HorizonsItemsDto {
     private String article;
     private String channels;
     private String content;
     private String content_more;
     private String content_text;
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(
+            pattern = "yyyy-MM-dd HH:mm:ss",
+            timezone = "GMT+8"
+    )
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date display_time;
     private String global_channel_name;
     private String global_more_uri;
@@ -33,4 +43,9 @@ public class JianwenItemsDto {
     private String title;
     private String type;
 
+    public void setDisplay_time(String display_time) {
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        long date_temp = Long.valueOf(display_time);
+        this.display_time = new Date(date_temp * 1000L);
+    }
 }

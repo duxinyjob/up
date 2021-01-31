@@ -1,7 +1,7 @@
 package com.example.spider.spider.controller;
 
 import com.example.spider.spider.entity.Horizons;
-import com.example.spider.spider.service.JianwenService;
+import com.example.spider.spider.service.HorizonsService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -14,12 +14,12 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("jianwen")
-public class JianwenController {
+public class HorizonsController {
     /**
      * 服务对象
      */
     @Resource
-    private JianwenService jianwenService;
+    private HorizonsService horizonsService;
 
     /**
      * 通过主键查询单条数据
@@ -29,7 +29,7 @@ public class JianwenController {
      */
     @GetMapping("selectOne")
     public Horizons selectOne(Integer id) {
-        return this.jianwenService.queryById(id);
+        return this.horizonsService.queryById(id);
     }
 
 }

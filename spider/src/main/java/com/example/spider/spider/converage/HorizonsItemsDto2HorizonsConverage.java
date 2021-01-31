@@ -1,6 +1,6 @@
 package com.example.spider.spider.converage;
 
-import com.example.spider.spider.dto.JianwenItemsDto;
+import com.example.spider.spider.dto.HorizonsItemsDto;
 import com.example.spider.spider.entity.Horizons;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -10,9 +10,9 @@ import org.mapstruct.factory.Mappers;
 import java.util.List;
 
 @Mapper
-public interface JianwenItemsDto2JianwenConverage {
+public interface HorizonsItemsDto2HorizonsConverage {
 
-    JianwenItemsDto2JianwenConverage INSTANCE = Mappers.getMapper(JianwenItemsDto2JianwenConverage.class);
+    HorizonsItemsDto2HorizonsConverage INSTANCE = Mappers.getMapper(HorizonsItemsDto2HorizonsConverage.class);
 
     @Mappings({
             @Mapping(source = "content_more", target = "contentMore"),
@@ -26,8 +26,8 @@ public interface JianwenItemsDto2JianwenConverage {
             @Mapping(source = "is_scaling", target = "isScaling"),
             @Mapping(source = "related_themes", target = "relatedThemes"),
     })
-    Horizons jianwenFromJianwenItemsDto(JianwenItemsDto itemsDto);
+    Horizons jianwenFromJianwenItemsDto(HorizonsItemsDto itemsDto);
 
-    List<Horizons> jianwenFromJianwenItemsDto(List<JianwenItemsDto> itemsDto);
+    List<Horizons> jianwenFromJianwenItemsDto(List<HorizonsItemsDto> itemsDto);
 
 }

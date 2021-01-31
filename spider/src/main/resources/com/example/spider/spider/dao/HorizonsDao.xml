@@ -125,7 +125,7 @@
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into horizons(id,article, channels, content, content_more, content_text, global_channel_name, global_more_uri, display_time, image_uris, is_calendar, is_favourite, is_priced, is_scaling, reference, related_themes, score, symbols, tags, title, type, gmt_created_time, gmt_update_time)
+        insert IGNORE  into horizons(id,article, channels, content, content_more, content_text, global_channel_name, global_more_uri, display_time, image_uris, is_calendar, is_favourite, is_priced, is_scaling, reference, related_themes, score, symbols, tags, title, type, gmt_created_time, gmt_update_time)
         values (#{id},#{article}, #{channels}, #{content}, #{contentMore}, #{contentText}, #{globalChannelName}, #{globalMoreUri}, #{displayTime}, #{imageUris}, #{isCalendar}, #{isFavourite}, #{isPriced}, #{isScaling}, #{reference}, #{relatedThemes}, #{score}, #{symbols}, #{tags}, #{title}, #{type}, #{gmtCreatedTime}, #{gmtUpdateTime})
     </insert>
 
