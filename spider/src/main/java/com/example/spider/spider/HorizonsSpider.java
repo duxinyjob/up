@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.example.spider.spider.converage.HorizonsItemsDto2HorizonsConverage;
 import com.example.spider.spider.dao.HorizonsDao;
 import com.example.spider.spider.dto.HorizonsDto;
-import com.example.spider.spider.dto.HorizonsItemsDto;
 import com.example.spider.spider.entity.Horizons;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +11,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import java.text.SimpleDateFormat;
-import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
-import java.util.logging.SimpleFormatter;
-import java.util.stream.Collectors;
 
 @Component
 @Slf4j
