@@ -30,26 +30,32 @@ public class HorizonsSpider {
     @Scheduled(fixedDelay = 300000)
     public void start(){
         log.info("定时任务开启");
-        this.getHorizonsJson(pageNo);
+        Horizons horizons  = horizonsDao.queryLastDisplayTime();
+        this.getHorizonsJson(pageNo,horizons.getId());
+
         log.info("定时任务结束");
     }
 
-    private void getHorizonsJson(Integer pageNo){
+    private void getHorizonsJson(Integer pageNo, Integer id){
         StringBuilder url = new StringBuilder("https://api.wallstcn.com/apiv1/search/live?");
         url.append("cursor=" + pageNo);
         url.append("&channel=global-channel&score=2");
         url.append("&limit=" + limit);
         String result = restTemplate.getForObject(url.toString(),String.class);
-        log.info(result);
+        log.info("each request" + result);
         HorizonsDto horizonsDto = JSON.parseObject(result, HorizonsDto.class);
 
         List<Horizons> horizonsList = HorizonsItemsDto2HorizonsConverage.INSTANCE.jianwenFromJianwenItemsDto(horizonsDto.getData().getItems());
         for (Horizons horizons : horizonsList) {
+            if (horizons.getId().equals(id)){
+                return;
+            }
+            log.info("insert cell" + horizons);
             horizonsDao.insert(horizons);
         }
         if (pageNo < 3000){
             Integer page = pageNo +1;
-            getHorizonsJson(page);
+            getHorizonsJson(page,id);
         }
     }
 }

@@ -62,4 +62,11 @@ public interface HorizonsDao {
      */
     int deleteById(Integer id);
 
+
+    /**
+     * 根据displayTime倒叙 查找最新的数据
+     * @return
+     */
+    Horizons queryLastDisplayTime();
+
 }

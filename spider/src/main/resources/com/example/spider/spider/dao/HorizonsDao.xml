@@ -37,6 +37,10 @@
         where id = #{id}
     </select>
 
+    <select id="queryLastDisplayTime" resultMap="BaseResultMap">
+        SELECT * FROM horizons ORDER BY display_time DESC LIMIT 1
+    </select>
+
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="BaseResultMap">
         select
