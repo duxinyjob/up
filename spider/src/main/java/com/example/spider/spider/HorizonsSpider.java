@@ -23,6 +23,8 @@ public class HorizonsSpider {
     @Autowired
     private HorizonsDao horizonsDao;
 
+    private static final int MAX_PAGE = 3000;
+
     private Integer pageNo = 1;
 
     private Integer limit = 20;
@@ -53,7 +55,7 @@ public class HorizonsSpider {
             log.info("insert cell" + horizons);
             horizonsDao.insert(horizons);
         }
-        if (pageNo < 3000){
+        if (pageNo < MAX_PAGE){
             Integer page = pageNo +1;
             getHorizonsJson(page,id);
         }
