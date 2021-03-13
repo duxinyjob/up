@@ -22,55 +22,55 @@ import java.io.Serializable;
 @ToString
 public class Horizons implements Serializable {
     private static final long serialVersionUID = 782410605437022440L;
-    
+
     private Integer id;
-    
+
     private String article;
-    
+
     private String channels;
-    
+
     private String content;
-    
+
     private String contentMore;
-    
+
     private String contentText;
-    
+
     private String globalChannelName;
-    
+
     private String globalMoreUri;
 
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(
             pattern = "yyyy-MM-dd HH:mm:ss",
             timezone = "GMT+8"
     )
     private Date displayTime;
-    
+
     private String imageUris;
-    
+
     private Integer isCalendar;
-    
+
     private Integer isFavourite;
-    
+
     private Integer isPriced;
-    
+
     private Integer isScaling;
-    
+
     private String reference;
-    
+
     private String relatedThemes;
-    
+
     private Integer score;
-    
+
     private String symbols;
-    
+
     private String tags;
-    
+
     private String title;
-    
+
     private String type;
-    
+
     private Date gmtCreatedTime;
-    
+
     private Date gmtUpdateTime;
 }

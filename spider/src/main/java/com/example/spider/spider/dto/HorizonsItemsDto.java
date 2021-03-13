@@ -21,7 +21,7 @@ public class HorizonsItemsDto {
     private String content;
     private String content_more;
     private String content_text;
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(
             pattern = "yyyy-MM-dd HH:mm:ss",
             timezone = "GMT+8"
@@ -44,7 +44,7 @@ public class HorizonsItemsDto {
     private String type;
 
     public void setDisplay_time(String display_time) {
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         long date_temp = Long.valueOf(display_time);
         this.display_time = new Date(date_temp * 1000L);
     }

@@ -2,6 +2,7 @@ package com.example.spider.spider.dao;
 
 import com.example.spider.spider.entity.Horizons;
 import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ public interface HorizonsDao {
      * 查询指定行数据
      *
      * @param offset 查询起始位置
-     * @param limit 查询条数
+     * @param limit  查询条数
      * @return 对象列表
      */
     List<Horizons> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
@@ -65,6 +66,7 @@ public interface HorizonsDao {
 
     /**
      * 根据displayTime倒叙 查找最新的数据
+     *
      * @return
      */
     Horizons queryLastDisplayTime();
