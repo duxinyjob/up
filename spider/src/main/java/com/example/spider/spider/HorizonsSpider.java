@@ -34,7 +34,7 @@ public class HorizonsSpider {
     @Scheduled(fixedDelay = 1200000)
     public void start() {
         log.info("定时任务开启");
-        Horizons horizons = horizonsDao.queryLastDisplayTime();
+//        Horizons horizons = horizonsDao.queryLastDisplayTime();
 //        this.getHorizonsJson(pageNo,horizons.getId());
         this.getNowHorizonsGobleJson();
         log.info("定时任务结束");
