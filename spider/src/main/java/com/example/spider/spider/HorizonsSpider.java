@@ -31,7 +31,7 @@ public class HorizonsSpider {
 
     private Integer limit = 20;
 
-    @Scheduled(fixedDelay = 1200000)
+    @Scheduled(fixedDelay = 3600000)
     public void start() {
         log.info("定时任务开启");
 //        Horizons horizons = horizonsDao.queryLastDisplayTime();
